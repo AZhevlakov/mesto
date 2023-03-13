@@ -1,0 +1,48 @@
+@import url("../vendor/normalize.css");
+
+@import url("../vendor/fonts/fonts.css");
+
+@import url("../blocks/page/page.css");
+@import url("../blocks/page/__container/page__container.css");
+
+@import url("../blocks/header/header.css");
+@import url("../blocks/header/__logo/header__logo.css");
+
+@import url("../blocks/content/content.css");
+
+@import url("../blocks/profile/profile.css");
+@import url("../blocks/profile/__info/profile__info.css");
+@import url("../blocks/profile/__avatar/profile__avatar.css");
+@import url("../blocks/profile/__name/profile__name.css");
+@import url("../blocks/profile/__job/profile__job.css");
+@import url("../blocks/profile/__edit/profile__edit.css");
+
+@import url("../blocks/photo-card-add/photo-card-add.css");
+
+@import url("../blocks/photo-gallery/photo-gallery.css");
+@import url("../blocks/photo-card/photo-card.css");
+@import url("../blocks/photo-card/__item/photo-card__item.css");
+@import url("../blocks/photo-card/__image/photo-card__image.css");
+@import url("../blocks/photo-card/__description/photo-card__description.css");
+@import url("../blocks/photo-card/__name/photo-card__name.css");
+@import url("../blocks/photo-card/__like/photo-card__like.css");
+
+@import url("../blocks/footer/footer.css");
+@import url("../blocks/footer/__copyright/footer__copyright.css");
+
+@import url("../blocks/link/link.css");
+
+@import url("../blocks/btn/btn.css");
+
+@import url("../blocks/popup/popup.css");
+@import url("../blocks/popup/_opened/popup_opened.css");
+@import url("../blocks/popup/__container/popup__container.css");
+@import url("../blocks/popup/__close/popup__close.css");
+
+@import url("../blocks/form-profile/form-profile.css");
+@import url("../blocks/form-profile/__container/form-profile__container.css");
+@import url("../blocks/form-profile/__heading/form-profile__heading.css");
+@import url("../blocks/form-profile/__item/form-profile__item.css");
+@import url("../blocks/form-profile/__item/_el/form-profile__item_el_name.css");
+@import url("../blocks/form-profile/__item/_el/form-profile__item_el_job.css");
+@import url("../blocks/form-profile/__save/form-profile__save.css");

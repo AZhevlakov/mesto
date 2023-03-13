@@ -1,0 +1,27 @@
+.form-profile__save {
+  width: 100%;
+  min-height: 50px;
+  margin: 18px 0 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.22;
+  text-align: center;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  background-color: #000;
+  transition: background-color .3s ease-in;
+}
+
+.form-profile__save:hover {
+  background-color: rgba(0, 0, 0, .8);
+}
+
+@media (max-width: 659px) {
+  .form-profile__save {
+    min-height: 46px;
+    margin: 15px 0 0;
+    font-size: 14px;
+    line-height: 1.21;
+  }
+}

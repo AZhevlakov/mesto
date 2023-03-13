@@ -1,0 +1,9 @@
+.profile__avatar {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  box-sizing: border-box;
+  background: url('../../../images/avatar.png') center no-repeat;
+  border-radius: 50%;
+  overflow: hidden;
+}
