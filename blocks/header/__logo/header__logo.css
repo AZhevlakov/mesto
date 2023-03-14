@@ -1,9 +1,9 @@
 .header__logo {
   width: 142px;
   height: 33px;
-  background: url('../../../images/logo.svg') top left no-repeat;
-  background-size: 100%;
   margin-bottom: 40px;
+  line-height: 0;
+  display: block;
 }
 
 @media (max-width: 659px) {

@@ -9,19 +9,20 @@ const formProfile = document.querySelector('.form-profile');
 const profileNameInput = formProfile.querySelector('.form-profile__item_el_name');
 const profileJobInput = formProfile.querySelector('.form-profile__item_el_job');
 
-
+// открытие формы редактирования профиля пользователя
 function openPopup() {
-  console.log(4);
   profileNameInput.value = profileName.textContent;
   profileJobInput.value = profileJob.textContent;
 
   popup.classList.add('popup_opened');
 }
 
+// закрытие формы
 function closePopup() {
   popup.classList.remove('popup_opened');
 }
 
+// отправка и закрытие формы
 function handleFormSubmit(evt) {
   evt.preventDefault();
 
@@ -31,6 +32,7 @@ function handleFormSubmit(evt) {
   closePopup();
 }
 
+// слушатели событий
 profileEdit.addEventListener('click', openPopup);
 formProfile.addEventListener('submit', handleFormSubmit);
 popupClose.addEventListener('click', closePopup);

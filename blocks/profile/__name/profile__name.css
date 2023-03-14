@@ -18,5 +18,6 @@
     line-height: 1.22;
     text-align: center;
     margin-left: 28px;
+    justify-self: center;
   }
 }

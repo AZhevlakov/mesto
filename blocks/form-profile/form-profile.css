@@ -1,7 +1,6 @@
 .form-profile {
   box-sizing: border-box;
   max-width: 430px;
-  min-height: 330px;
   padding: 34px 36px 37px;
   margin: 0;
 }
@@ -9,7 +8,6 @@
 @media (max-width: 659px) {
   .form-profile {
     max-width: 282px;
-    min-height: 322px;
     padding: 25px 22px;
   }
 }
