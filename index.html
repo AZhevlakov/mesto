@@ -28,48 +28,7 @@
       </section>
       <section class="photo-gallery" aria-label="Галерея фотографий">
         <ul class="photo-gallery__items">
-          <li class="photo-card">
-            <img class="photo-card__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
-            <div class="photo-card__description">
-              <h2 class="photo-card__name">Карачаевск</h2>
-              <button class="btn photo-card__like" type="button" aria-label="Поставить сердечко"></button>
-            </div>
-          </li>
-          <li class="photo-card">
-            <img class="photo-card__image" src="./images/elbrus.png" alt="Гора Эльбрус">
-            <div class="photo-card__description">
-              <h2 class="photo-card__name">Гора Эльбрус</h2>
-              <button class="btn photo-card__like" type="button" aria-label="Поставить сердечко"></button>
-            </div>
-          </li>
-          <li class="photo-card">
-            <img class="photo-card__image" src="./images/dombay.png" alt="Домбай">
-            <div class="photo-card__description">
-              <h2 class="photo-card__name">Домбай</h2>
-              <button class="btn photo-card__like" type="button" aria-label="Поставить сердечко"></button>
-            </div>
-          </li>
-          <li class="photo-card">
-            <img class="photo-card__image" src="./images/elbrus.png" alt="Гора Эльбрус">
-            <div class="photo-card__description">
-              <h2 class="photo-card__name">Гора Эльбрус</h2>
-              <button class="btn photo-card__like" type="button" aria-label="Поставить сердечко"></button>
-            </div>
-          </li>
-          <li class="photo-card">
-            <img class="photo-card__image" src="./images/dombay.png" alt="Домбай">
-            <div class="photo-card__description">
-              <h2 class="photo-card__name">Домбай</h2>
-              <button class="btn photo-card__like" type="button" aria-label="Поставить сердечко"></button>
-            </div>
-          </li>
-          <li class="photo-card">
-            <img class="photo-card__image" src="./images/karachaevsk.jpg" alt="Карачаево-Черкесия">
-            <div class="photo-card__description">
-              <h2 class="photo-card__name">Карачаево-Черкесия</h2>
-              <button class="btn photo-card__like" type="button" aria-label="Поставить сердечко"></button>
-            </div>
-          </li>
+          <!-- Сюда вставляются фотокарточки -->
         </ul>
       </section>
     </main>
@@ -77,20 +36,62 @@
       <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
     </footer>
   </div>
-  <div class="popup">
+
+  <!-- Форма редактирования профиля -->
+  <div class="popup popup_type_profile-edit">
     <div class="popup__container">
-      <form class="form-profile" name="profile-edit">
-        <fieldset class="form-profile__container">
-          <legend class="form-profile__heading">Редактировать профиль</legend>
-          <input class="form-profile__item form-profile__item_el_name" type="text" id="name" name="name" placeholder="Имя" required>
-          <input class="form-profile__item form-profile__item_el_job" type="text" id="job" name="job" placeholder="Занятие" required>
-          <button class="btn form-profile__save" type="submit">Сохранить</button>
+      <form class="form" name="form-profile-edit">
+        <fieldset class="form__container">
+          <legend class="form__heading">Редактировать профиль</legend>
+          <input class="form__item form__item_el_name" type="text" id="name" name="name" placeholder="Имя" required>
+          <input class="form__item form__item_el_job" type="text" id="job" name="job" placeholder="Занятие" required>
+          <button class="btn form__save" type="submit">Сохранить</button>
         </fieldset>
       </form>
       <button class="btn popup__close" type="button" aria-label="Закрыть форму"></button>
     </div>
   </div>
+
+  <!-- Форма добавления новой карточки -->
+  <div class="popup popup_type_photo-card-add">
+    <div class="popup__container">
+      <form class="form" name="form-photo-card-add">
+        <fieldset class="form__container">
+          <legend class="form__heading">Новое место</legend>
+          <input class="form__item form__item_el_card-name" type="text" id="card-name" name="card-name" placeholder="Название" required>
+          <input class="form__item form__item_el_card-link" type="text" id="card-link" name="card-link" placeholder="Ссылка на картинку" required>
+          <button class="btn form__save" type="submit">Создать</button>
+        </fieldset>
+      </form>
+      <button class="btn popup__close" type="button" aria-label="Закрыть форму"></button>
+    </div>
+  </div>
+
+  <!-- Форма просмотра изображения -->
+  <div class="popup popup_type_img-open">
+    <div class="popup__container popup__container_img">
+      <figure class="photo-viewer">
+        <img class="photo-viewer__image" src="-" alt="">
+        <figcaption class="photo-viewer__description"></figcaption>
+      </figure>
+      <button class="btn popup__close" type="button" aria-label="Закрыть форму"></button>
+    </div>
+  </div>
+
+  <!-- Шаблон карточки -->
+  <template id="photo-card-template">
+    <li class="photo-card">
+      <img class="btn photo-card__image" src="" alt="">
+      <button class="btn photo-card__delete" type="button" aria-label="Удалить фотокарточку"></button>
+      <div class="photo-card__description">
+        <h2 class="photo-card__name"></h2>
+        <button class="btn photo-card__like" type="button" aria-label="Поставить сердечко"></button>
+      </div>
+    </li>
+  </template>
+
   <script src="./scripts/index.js"></script>
+
 </body>
 
 </html>

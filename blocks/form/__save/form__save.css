@@ -1,4 +1,4 @@
-.form-profile__save {
+.form__save {
   width: 100%;
   min-height: 50px;
   margin: 18px 0 0;
@@ -13,12 +13,12 @@
   transition: background-color .3s ease-in;
 }
 
-.form-profile__save:hover {
+.form__save:hover {
   background-color: rgba(0, 0, 0, .8);
 }
 
 @media (max-width: 659px) {
-  .form-profile__save {
+  .form__save {
     min-height: 46px;
     margin: 12px 0 0;
     font-size: 14px;
