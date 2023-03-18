@@ -10,7 +10,7 @@
   border: none;
   border-radius: 2px;
   background-color: #000;
-  transition: background-color .3s ease-in;
+  transition: .3s;
 }
 
 .form__submit:hover {

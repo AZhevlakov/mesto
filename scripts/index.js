@@ -33,15 +33,23 @@ popupsClose.forEach((item) => {
   });
 });
 
+// Обработчик нажатия на Esc
+function keydownEscHandler(evt) {
+  if (evt.key === 'Escape') {
+    closePopup(evt.target);
+  }
+}
 
 // Функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  window.addEventListener('keydown', keydownEscHandler);
 }
 
 // Функция закрытия попапов
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  popup.removeEventListener('keydown', keydownEscHandler);
 }
 
 // Инициализация фотокарточки
