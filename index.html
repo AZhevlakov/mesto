@@ -40,12 +40,18 @@
   <!-- Форма редактирования профиля -->
   <div class="popup popup_type_profile-edit">
     <div class="popup__container">
-      <form class="form" name="form-profile-edit">
-        <fieldset class="form__container">
+      <form class="form" name="form-profile-edit" novalidate>
+        <fieldset class="form__set">
           <legend class="form__heading">Редактировать профиль</legend>
-          <input class="form__item form__item_el_name" type="text" id="name" name="name" placeholder="Имя" required>
-          <input class="form__item form__item_el_job" type="text" id="job" name="job" placeholder="Занятие" required>
-          <button class="btn form__save" type="submit">Сохранить</button>
+          <label class="form__field">
+            <input class="form__input form__input_el_name" type="text" id="name-input" name="name-input" placeholder="Имя" required minlength="2" maxlength="40">
+            <span class="form__input-error name-input-error">1</span>
+          </label>
+          <label class="form__field">
+            <input class="form__input form__input_el_job" type="text" id="job-input" name="job-input" placeholder="Занятие" required minlength="2" maxlength="200">
+            <span class="form__input-error job-input-error">1</span>
+          </label>
+          <button class="btn form__submit" type="submit">Сохранить</button>
         </fieldset>
       </form>
       <button class="btn popup__close" type="button" aria-label="Закрыть форму"></button>
@@ -55,12 +61,18 @@
   <!-- Форма добавления новой карточки -->
   <div class="popup popup_type_photo-card-add">
     <div class="popup__container">
-      <form class="form" name="form-photo-card-add">
-        <fieldset class="form__container">
+      <form class="form" name="form-photo-card-add" novalidate>
+        <fieldset class="form__set">
           <legend class="form__heading">Новое место</legend>
-          <input class="form__item form__item_el_card-name" type="text" id="card-name" name="card-name" placeholder="Название" required>
-          <input class="form__item form__item_el_card-link" type="text" id="card-link" name="card-link" placeholder="Ссылка на картинку" required>
-          <button class="btn form__save" type="submit">Создать</button>
+          <label class="form__field">
+            <input class="form__input form__input_el_card-name" type="text" id="card-name-input" name="card-name-input" placeholder="Название" required minlength="1" maxlength="30">
+            <spadn class="form__input-error card-name-input-error">111111111111111111111111111111111111111111111111111111111 11111111111111111111111111111111</spadn>
+          </label>
+          <label class="form__field">
+            <input class="form__input form__input_el_card-link" type="url" id="card-link-input" name="card-link-input" placeholder="Ссылка на картинку" required>
+            <span class="form__input-error card-link-input-error">1</span>
+          </label>
+          <button class="btn form__submit" type="submit">Создать</button>
         </fieldset>
       </form>
       <button class="btn popup__close" type="button" aria-label="Закрыть форму"></button>
@@ -91,6 +103,7 @@
   </template>
 
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
 
 </body>
 

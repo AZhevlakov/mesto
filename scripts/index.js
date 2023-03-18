@@ -5,8 +5,8 @@ const profileJob = document.querySelector('.profile__job');
 
 const popupProfileEdit = document.querySelector('.popup_type_profile-edit');
 const formProfileEdit = popupProfileEdit.querySelector('.form');
-const profileNameInput = formProfileEdit.querySelector('.form__item_el_name');
-const profileJobInput = formProfileEdit.querySelector('.form__item_el_job');
+const profileNameInput = formProfileEdit.querySelector('.form__input_el_name');
+const profileJobInput = formProfileEdit.querySelector('.form__input_el_job');
 
 // Card
 const cardsGallery = document.querySelector('.photo-gallery__items');
@@ -15,8 +15,8 @@ const cardTemplate = document.querySelector('#photo-card-template').content;
 
 const popupCardAdd = document.querySelector('.popup_type_photo-card-add');
 const formCardAdd = popupCardAdd.querySelector('.form');
-const cardNameInput = formCardAdd.querySelector('.form__item_el_card-name');
-const cardLinkInput = formCardAdd.querySelector('.form__item_el_card-link');
+const cardNameInput = formCardAdd.querySelector('.form__input_el_card-name');
+const cardLinkInput = formCardAdd.querySelector('.form__input_el_card-link');
 
 // Img
 const popupImg = document.querySelector('.popup_type_img-open');

@@ -34,25 +34,29 @@
 @import url("../blocks/footer/__copyright/footer__copyright.css");
 
 @import url("../blocks/btn/btn.css");
+@import url("../blocks/btn/_inactive/btn_inactive.css");
 
 @import url("../blocks/popup/popup.css");
+@import url("../blocks/popup/_opened/popup_opened.css");
 @import url("../blocks/popup/_type/popup_type_profile-edit.css");
 @import url("../blocks/popup/_type/popup_type_photo-card-add.css");
 @import url("../blocks/popup/_type/popup_type_img-open.css");
-@import url("../blocks/popup/_opened/popup_opened.css");
 @import url("../blocks/popup/__container/popup__container.css");
 @import url("../blocks/popup/__container/_img/popup__container_img.css");
 @import url("../blocks/popup/__close/popup__close.css");
 
 @import url("../blocks/form/form.css");
-@import url("../blocks/form/__container/form__container.css");
+@import url("../blocks/form/__set/form__set.css");
+@import url("../blocks/form/__field/form__field.css");
 @import url("../blocks/form/__heading/form__heading.css");
-@import url("../blocks/form/__item/form__item.css");
-@import url("../blocks/form/__item/_el/form__item_el_name.css");
-@import url("../blocks/form/__item/_el/form__item_el_job.css");
-@import url("../blocks/form/__item/_el/form__item_el_card-name.css");
-@import url("../blocks/form/__item/_el/form__item_el_card-link.css");
-@import url("../blocks/form/__save/form__save.css");
+@import url("../blocks/form/__input/form__input.css");
+@import url("../blocks/form/__input-error/form__input-error.css");
+@import url("../blocks/form/__input-error/_active/form__input-error_active.css");
+@import url("../blocks/form/__input/_el/form__input_el_name.css");
+@import url("../blocks/form/__input/_el/form__input_el_job.css");
+@import url("../blocks/form/__input/_el/form__input_el_card-name.css");
+@import url("../blocks/form/__input/_el/form__input_el_card-link.css");
+@import url("../blocks/form/__submit/form__submit.css");
 
 @import url("../blocks/photo-viewer/photo-viewer.css");
 @import url("../blocks/photo-viewer/__image/photo-viewer__image.css");
