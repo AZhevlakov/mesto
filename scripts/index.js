@@ -1,5 +1,3 @@
-const popups = document.querySelectorAll('.popup');
-
 // Profile
 const profileEdit = document.querySelector('.profile__edit');
 const profileName = document.querySelector('.profile__name');
@@ -26,29 +24,21 @@ const imgPopupImg = popupImg.querySelector('.photo-viewer__image');
 const captionPopupImg = popupImg.querySelector('.photo-viewer__description');
 
 
+const popups = document.querySelectorAll('.popup');
 const popupsClose = document.querySelectorAll('.popup__close');
 
-popupsClose.forEach((item) => {
-  const popup = item.closest('.popup');
-  item.addEventListener('click', () => {
-    closePopup(popup);
-  });
-});
+
 
 // Обработчик нажатия на клавишу клавиатуры
 function keydownHandler(evt) {
-
   // Обработчик нажатия на Esc
   if (evt.key === 'Escape') {
-    popups.forEach((popup) => {
-      if (popup.classList.contains('popup_opened')) {
-        closePopup(popup);
-      }
-    });
+    const popupOpened = document.querySelector('.popup_opened');
+    closePopup(popupOpened);
   }
 }
 
-// Обработчик клика в попапе
+// Обработчик нажатия в/вне попапа
 function clickPopupHandler(evt) {
   if (evt.target.classList.contains('popup')) {
     closePopup(evt.target);
@@ -59,14 +49,12 @@ function clickPopupHandler(evt) {
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', keydownHandler);
-  popup.addEventListener('click', clickPopupHandler);
 }
 
 // Функция закрытия попапов
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', keydownHandler);
-  popup.removeEventListener('click', clickPopupHandler);
 }
 
 // Инициализация фотокарточки
@@ -156,6 +144,8 @@ profileEdit.addEventListener('click', () => {
   profileNameInput.value = profileName.textContent;
   profileJobInput.value = profileJob.textContent;
 
+  const formElement = popupProfileEdit.querySelector(validationSettings.formSelector);
+  resetError(formElement, validationSettings);
   openPopup(popupProfileEdit);
 });
 
@@ -171,6 +161,8 @@ formProfileEdit.addEventListener('submit', (evt) => {
 
 // Обработчик нажатия на кнопку добавления новой карточки
 cardAdd.addEventListener('click', () => {
+  const formElement = popupCardAdd.querySelector(validationSettings.formSelector);
+  resetError(formElement, validationSettings);
   openPopup(popupCardAdd);
 });
 
@@ -180,6 +172,19 @@ formCardAdd.addEventListener('submit', (evt) => {
   addCard(initCard(cardNameInput.value, cardLinkInput.value), cardsGallery);
   closePopup(popupCardAdd);
   evt.target.reset();
+});
+
+// Добавление обработчиков на крестики закрытия попапов
+popupsClose.forEach((item) => {
+  const popup = item.closest('.popup');
+  item.addEventListener('click', () => {
+    closePopup(popup);
+  });
+});
+
+// Добавление слушателей нажатия на ЛКМ в попапе
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', clickPopupHandler);
 });
 
 
