@@ -1,3 +1,5 @@
+const popups = document.querySelectorAll('.popup');
+
 // Profile
 const profileEdit = document.querySelector('.profile__edit');
 const profileName = document.querySelector('.profile__name');
@@ -33,9 +35,22 @@ popupsClose.forEach((item) => {
   });
 });
 
-// Обработчик нажатия на Esc
-function keydownEscHandler(evt) {
+// Обработчик нажатия на клавишу клавиатуры
+function keydownHandler(evt) {
+
+  // Обработчик нажатия на Esc
   if (evt.key === 'Escape') {
+    popups.forEach((popup) => {
+      if (popup.classList.contains('popup_opened')) {
+        closePopup(popup);
+      }
+    });
+  }
+}
+
+// Обработчик клика в попапе
+function clickPopupHandler(evt) {
+  if (evt.target.classList.contains('popup')) {
     closePopup(evt.target);
   }
 }
@@ -43,13 +58,15 @@ function keydownEscHandler(evt) {
 // Функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  window.addEventListener('keydown', keydownEscHandler);
+  document.addEventListener('keydown', keydownHandler);
+  popup.addEventListener('click', clickPopupHandler);
 }
 
 // Функция закрытия попапов
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  popup.removeEventListener('keydown', keydownEscHandler);
+  document.removeEventListener('keydown', keydownHandler);
+  popup.removeEventListener('click', clickPopupHandler);
 }
 
 // Инициализация фотокарточки
