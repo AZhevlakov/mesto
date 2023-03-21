@@ -1,5 +1,5 @@
-import {Card} from './Card.js';
-import {FormValidator} from './FormValidator.js';
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
 
 
 const validationSettings = {
@@ -41,6 +41,13 @@ const popups = document.querySelectorAll('.popup');
 const popupsClose = document.querySelectorAll('.popup__close');
 
 
+const validationFormProfileEdit = new FormValidator(validationSettings, formProfileEdit);
+validationFormProfileEdit.enableValidation();
+
+const validationFormCardAdd = new FormValidator(validationSettings, formCardAdd);
+validationFormCardAdd.enableValidation();
+
+
 
 // Обработчик нажатия на клавишу клавиатуры
 function keydownHandler(evt) {
@@ -71,11 +78,15 @@ function closePopup(popup) {
 }
 
 // Добавление фотокарточки
-function addCard(cardName, link, containerLink) {
+function addCard(cardElement, containerLink) {
+  containerLink.prepend(cardElement);
+}
+
+// Добавление фотокарточки
+function createCard(cardName, link) {
   const card = new Card(cardName, link, '#photo-card-template');
   const cardElement = card.generateCard();
-
-  containerLink.prepend(cardElement);
+  return cardElement;
 }
 
 // Добавление набора фотокарточек при загрузке страницы
@@ -108,7 +119,8 @@ function addCardsOnLoad() {
   ];
 
   initialCards.forEach((item) => {
-    addCard(item.cardName, item.link, cardsGallery);
+    const cardElement = createCard(item.cardName, item.link);
+    addCard(cardElement, cardsGallery);
   });
 }
 
@@ -120,10 +132,7 @@ profileEdit.addEventListener('click', () => {
   profileNameInput.value = profileName.textContent;
   profileJobInput.value = profileJob.textContent;
 
-  const formElement = popupProfileEdit.querySelector(validationSettings.formSelector);
-
-  const validation = new FormValidator(validationSettings, formElement);
-  validation.enableValidation();
+  validationFormProfileEdit.resetError();
 
   openPopup(popupProfileEdit);
 });
@@ -140,10 +149,7 @@ formProfileEdit.addEventListener('submit', (evt) => {
 
 // Обработчик нажатия на кнопку добавления новой карточки
 cardAdd.addEventListener('click', () => {
-  const formElement = popupCardAdd.querySelector(validationSettings.formSelector);
-
-  const validation = new FormValidator(validationSettings, formElement);
-  validation.enableValidation();
+  validationFormCardAdd.resetError();
 
   openPopup(popupCardAdd);
 });
@@ -151,7 +157,8 @@ cardAdd.addEventListener('click', () => {
 // Обработчик отправки формы создания новой фотокарточки
 formCardAdd.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  addCard(cardNameInput.value, cardLinkInput.value, cardsGallery);
+  const cardElement = createCard(cardNameInput.value, cardLinkInput.value);
+  addCard(cardElement, cardsGallery);
   closePopup(popupCardAdd);
   evt.target.reset();
 });
