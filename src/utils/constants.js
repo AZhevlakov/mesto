@@ -43,11 +43,6 @@ export const popupSettings = {
   popupCloseButton: '.popup__close' // button закрытия попапа
 };
 
-export const popupWithImageSettings = {
-  imagePopupImg: '.photo-viewer__image',
-  captionPopupImg: '.photo-viewer__description'
-};
-
 
 // Profile
 export const profileEdit = document.querySelector('.profile__edit');

@@ -41,21 +41,12 @@ const popupCardAdd = new PopupWithForm(
   popupSettings.popupCardAddSelector,
   {
     handleFormSubmit: (formData) => {
-
-      const card = new Card(
-        {
-          cardName: formData['card-name-input'],
-          cardLink: formData['card-link-input'],
-          handleCardClick: () => {
-            popupImg.open({
-              name: formData['card-name-input'],
-              link: formData['card-link-input']
-            });
-          }
-        },
-        '#photo-card-template');
-      const cardElement = card.generateCard();
-      cardsList.addItem(cardElement);
+      cardsList.addItem(
+        createCard(
+          formData['card-name-input'],
+          formData['card-link-input']
+        )
+      );
 
       popupCardAdd.close();
     }
@@ -75,21 +66,24 @@ const cardsList = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      const card = new Card(
-        {
-          cardName: item.name,
-          cardLink: item.link,
-          handleCardClick: () => {
-            popupImg.open({ name: item.name, link: item.link });
-          }
-        },
-        '#photo-card-template');
-      const cardElement = card.generateCard();
-      cardsList.addItem(cardElement);
+      cardsList.addItem(createCard(item.name, item.link));
     }
   },
   '.photo-gallery__items'
 );
+
+const createCard = (name, link) => {
+  const card = new Card(
+    {
+      cardName: name,
+      cardLink: link,
+      handleCardClick: () => {
+        popupImg.open({ name: name, link: link });
+      }
+    },
+    '#photo-card-template');
+  return card.generateCard();
+}
 
 cardsList.renderItems();
 
