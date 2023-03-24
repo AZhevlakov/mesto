@@ -1,10 +1,8 @@
-import { popupImg, imgPopupImg, captionPopupImg, openPopup } from './index.js';
-
 export default class Card {
-  constructor(cardName, link, templateSelector) {
+  constructor({ cardName, cardLink, handleCardClick }, templateSelector) {
     this._cardName = cardName;
-    this._link = link;
-    this._isLiked = false;
+    this._cardLink = cardLink;
+    this._handleCardClick = handleCardClick;
     this._templateSelector = templateSelector;
   }
 
@@ -26,7 +24,7 @@ export default class Card {
     this._cardLike = this._element.querySelector('.photo-card__like');
     this._cardTrash = this._element.querySelector('.photo-card__delete');
 
-    this._cardImage.src = this._link;
+    this._cardImage.src = this._cardLink;
     this._cardImage.alt = this._cardName;
     this._cardTitle.textContent = this._cardName;
 
@@ -42,16 +40,6 @@ export default class Card {
 
   _likeCard() {
     this._cardLike.classList.toggle('photo-card__like_active');
-    this._isLiked = !this._isLiked;
-  }
-
-  _openImg() {
-
-    imgPopupImg.src = this._link;
-    imgPopupImg.alt = this._cardName;
-    captionPopupImg.textContent = this._cardName;
-
-    openPopup(popupImg);
   }
 
   _setEventListeners() {
@@ -64,7 +52,7 @@ export default class Card {
     });
 
     this._cardImage.addEventListener('click', () => {
-      this._openImg();
+      this._handleCardClick();
     });
   }
 }
