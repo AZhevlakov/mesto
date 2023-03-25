@@ -38,37 +38,23 @@ export const popupSettings = {
   popupProfileEditSelector: '.popup_type_profile-edit',
   popupCardAddSelector: '.popup_type_photo-card-add',
   popupImgSelector: '.popup_type_img-open',
+  imgViewerSelector: '.photo-viewer__image',
+  imgCaptionSelector: '.photo-viewer__description',
   popupClass: 'popup',
   openedPopupClass: 'popup_opened', // class открытого попапа
   popupCloseButton: '.popup__close' // button закрытия попапа
+
 };
 
 
 // Profile
 export const profileEdit = document.querySelector('.profile__edit');
-export const profileName = document.querySelector('.profile__name');
-export const profileJob = document.querySelector('.profile__job');
-
-export const popupProfileEdit = document.querySelector('.popup_type_profile-edit');
+const popupProfileEdit = document.querySelector('.popup_type_profile-edit');
 export const formProfileEdit = popupProfileEdit.querySelector('.form');
 export const profileNameInput = formProfileEdit.querySelector('.form__input_el_name');
 export const profileJobInput = formProfileEdit.querySelector('.form__input_el_job');
 
 // Card
-export const cardsGallery = document.querySelector('.photo-gallery__items');
 export const cardAdd = document.querySelector('.profile__photo-card-add');
-export const cardTemplate = document.querySelector('#photo-card-template').content;
-
-export const popupCardAdd = document.querySelector('.popup_type_photo-card-add');
+const popupCardAdd = document.querySelector('.popup_type_photo-card-add');
 export const formCardAdd = popupCardAdd.querySelector('.form');
-export const cardNameInput = formCardAdd.querySelector('.form__input_el_card-name');
-export const cardLinkInput = formCardAdd.querySelector('.form__input_el_card-link');
-
-// Img
-export const popupImg = document.querySelector('.popup_type_img-open');
-export const imgPopupImg = popupImg.querySelector('.photo-viewer__image');
-export const captionPopupImg = popupImg.querySelector('.photo-viewer__description');
-
-
-export const popups = document.querySelectorAll('.popup');
-export const popupsClose = document.querySelectorAll('.popup__close');

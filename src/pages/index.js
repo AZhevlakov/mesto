@@ -8,10 +8,10 @@ import {
   popupSettings,
   initialCards,
   profileEdit,
-  cardAdd,
+  formProfileEdit,
   profileNameInput,
   profileJobInput,
-  formProfileEdit,
+  cardAdd,
   formCardAdd
 } from '../utils/constants.js';
 import PopupWithForm from '../components/PopupWithForm.js';
@@ -27,6 +27,8 @@ validationFormCardAdd.enableValidation();
 
 const popupProfileEdit = new PopupWithForm(
   popupSettings.popupProfileEditSelector,
+  validationSettings.formSelector,
+  validationSettings.inputSelector,
   {
     handleFormSubmit: (formData) => {
       userInfo.setUserInfo(formData['name-input'], formData['job-input']);
@@ -39,6 +41,8 @@ popupProfileEdit.setEventListeners();
 
 const popupCardAdd = new PopupWithForm(
   popupSettings.popupCardAddSelector,
+  validationSettings.formSelector,
+  validationSettings.inputSelector,
   {
     handleFormSubmit: (formData) => {
       cardsList.addItem(
@@ -54,7 +58,11 @@ const popupCardAdd = new PopupWithForm(
 );
 popupCardAdd.setEventListeners();
 
-const popupImg = new PopupWithImage(popupSettings.popupImgSelector);
+const popupImg = new PopupWithImage(
+  popupSettings.popupImgSelector,
+  popupSettings.imgViewerSelector,
+  popupSettings.imgCaptionSelector
+);
 popupImg.setEventListeners();
 
 const userInfo = new UserInfo({

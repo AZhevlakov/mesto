@@ -1,11 +1,11 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  constructor(popupSelector, { handleFormSubmit }) {
+  constructor(popupSelector, formSelector, formInputSelector, { handleFormSubmit }) {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
-    this._form = this._popup.querySelector('.form');
-    this._inputList = this._form.querySelectorAll('.form__input');
+    this._form = this._popup.querySelector(formSelector);
+    this._inputList = this._form.querySelectorAll(formInputSelector);
   }
 
   // Функция закрытия попапов
