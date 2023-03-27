@@ -18,7 +18,7 @@
     <main class="content">
       <section class="profile" aria-label="Профиль">
         <button class="btn profile__avatar-edit" type="button" aria-label="Изменить аватар">
-          <img class="profile__avatar" src="" alt="Аватар пользователя">
+          <img class="profile__avatar" src="<%=require('./images/noimage.jpg')%>" alt="Аватар пользователя">
         </button>
         <div class="profile__info">
           <h1 class="profile__name"></h1>
@@ -114,7 +114,7 @@
   <div class="popup popup_type_img-open">
     <div class="popup__container popup__container_img">
       <figure class="photo-viewer">
-        <img class="photo-viewer__image" src="<%=require('./images/logo.svg')%>" alt="">
+        <img class="photo-viewer__image" src="<%=require('./images/noimage.jpg')%>" alt="">
         <figcaption class="photo-viewer__description"></figcaption>
       </figure>
       <button class="btn popup__close" type="button" aria-label="Закрыть форму"></button>
@@ -124,7 +124,7 @@
   <!-- Шаблон карточки -->
   <template id="photo-card-template-default">
     <li class="photo-card">
-      <img class="btn photo-card__image" src="<%=require('./images/logo.svg')%>" alt="">
+      <img class="btn photo-card__image" src="<%=require('./images/noimage.jpg')%>" alt="">
       <button class="btn photo-card__delete" type="button" aria-label="Удалить фотокарточку"></button>
       <div class="photo-card__description">
         <h2 class="photo-card__name"></h2>
@@ -139,7 +139,7 @@
   <!-- Шаблон чужой карточки (без иконки корзины) -->
   <template id="photo-card-template-non-user-card">
     <li class="photo-card">
-      <img class="btn photo-card__image" src="<%=require('./images/logo.svg')%>" alt="">
+      <img class="btn photo-card__image" src="<%=require('./images/noimage.jpg')%>" alt="">
       <div class="photo-card__description">
         <h2 class="photo-card__name"></h2>
         <div class="photo-card__likes">
