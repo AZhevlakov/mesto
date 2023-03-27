@@ -17,10 +17,12 @@
     </header>
     <main class="content">
       <section class="profile" aria-label="Профиль">
-        <div class="profile__avatar"></div>
+        <button class="btn profile__avatar-edit" type="button" aria-label="Изменить аватар">
+          <img class="profile__avatar" src="" alt="Аватар пользователя">
+        </button>
         <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <p class="profile__job">Исследователь океана</p>
+          <h1 class="profile__name"></h1>
+          <p class="profile__job"></p>
           <button class="btn profile__edit" type="button" aria-label="Редактировать профиль"></button>
         </div>
         <button class="btn profile__photo-card-add" type="button" aria-label="Добавить фотокарточку"></button>
@@ -78,6 +80,36 @@
     </div>
   </div>
 
+  <!-- Форма подтверждения удаления карточки -->
+  <div class="popup popup_type_confirm">
+    <div class="popup__container">
+      <form class="form" name="form-confirm" novalidate>
+        <fieldset class="form__set">
+          <legend class="form__heading">Вы уверены?</legend>
+          <button class="btn form__submit" type="submit">Да</button>
+        </fieldset>
+      </form>
+      <button class="btn popup__close" type="button" aria-label="Закрыть форму"></button>
+    </div>
+  </div>
+
+  <!-- Форма обновления аватара -->
+  <div class="popup popup_type_avatar-edit">
+    <div class="popup__container">
+      <form class="form" name="form-avatar-edit" novalidate>
+        <fieldset class="form__set">
+          <legend class="form__heading">Обновить аватар</legend>
+          <label class="form__field">
+            <input class="form__input form__input_el_avatar-link" type="url" id="avatar-link-input" name="avatar-link-input" placeholder="Ссылка на аватар" required>
+            <span class="form__input-error avatar-link-input-error"></span>
+          </label>
+          <button class="btn form__submit" type="submit">Сохранить</button>
+        </fieldset>
+      </form>
+      <button class="btn popup__close" type="button" aria-label="Закрыть форму"></button>
+    </div>
+  </div>
+
   <!-- Форма просмотра изображения -->
   <div class="popup popup_type_img-open">
     <div class="popup__container popup__container_img">
@@ -90,13 +122,30 @@
   </div>
 
   <!-- Шаблон карточки -->
-  <template id="photo-card-template">
+  <template id="photo-card-template-default">
     <li class="photo-card">
       <img class="btn photo-card__image" src="<%=require('./images/logo.svg')%>" alt="">
       <button class="btn photo-card__delete" type="button" aria-label="Удалить фотокарточку"></button>
       <div class="photo-card__description">
         <h2 class="photo-card__name"></h2>
-        <button class="btn photo-card__like" type="button" aria-label="Поставить сердечко"></button>
+        <div class="photo-card__likes">
+          <button class="btn photo-card__like" type="button" aria-label="Поставить сердечко"></button>
+          <span class="photo-card__number-of-likes">0</span>
+        </div>
+      </div>
+    </li>
+  </template>
+
+  <!-- Шаблон чужой карточки (без иконки корзины) -->
+  <template id="photo-card-template-non-user-card">
+    <li class="photo-card">
+      <img class="btn photo-card__image" src="<%=require('./images/logo.svg')%>" alt="">
+      <div class="photo-card__description">
+        <h2 class="photo-card__name"></h2>
+        <div class="photo-card__likes">
+          <button class="btn photo-card__like" type="button" aria-label="Поставить сердечко"></button>
+          <span class="photo-card__number-of-likes">0</span>
+        </div>
       </div>
     </li>
   </template>
