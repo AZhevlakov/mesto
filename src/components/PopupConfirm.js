@@ -7,10 +7,18 @@ export default class PopupConfirm extends Popup {
   }
 
   open(confirmDeleteCard) {
+    this._confirmDeleteCard = confirmDeleteCard;
+
+    super.open();
+  }
+
+  setEventListeners() {
+    super.setEventListeners();
+
+    // Обработчик сабмита формы
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      confirmDeleteCard();
+      this._confirmDeleteCard();
     });
-    super.open();
   }
 }
